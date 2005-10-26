@@ -18,7 +18,8 @@ use MT::Template::Context;
 
 my $plugin = MT::Plugin::DeliciousTags->new({
     name => 'Delicious Tags',
-    description => "Add MTDelciousTags for showing del.icio.us tags",
+    description => "A plugin for importing and displaying your del.icio.us tags",
+    doc_link => 'http://as-is.net/hacks/2005/10/delicious_tags_plugin.html',
     author_name => 'Hirotaka Ogawa',
     author_link => 'http://profile.typekey.com/ogawa/',
     version => $VERSION,
@@ -96,7 +97,50 @@ sub tag_count {
 1;
 __END__
 
-Example:
+=head1 NAME
+
+DeliciousTags.pl - A simple Movable Type plugin for displaying your
+del.icio.us tags.
+
+=head1 DESCRIPTION
+
+This plugin allows you to import your del.icio.us tags into your
+MT blogs.
+
+=head1 TAGS
+
+=over 4
+
+=item MTDeliciousTags [user="..."][pass="..."][sort_by="tag|count"][sort_order="ascend|descend][lastn="N"]
+
+A container tag for your del.icio.us tags. "user" and "pass" are required.
+
+=item MTDeliciousTag
+
+Generates a del.icio.us tag.
+
+=item MTDeliciousTagURL
+
+Generates the URL to a del.icio.us (e.g., http://del.icio.us/user/tag).
+
+=item MTDeliciousTagCount
+
+Generates the number how many a del.icio.us tag appears in your
+del.icio.us bookmarks.
+
+=item MTDeliciousTagsHeader
+
+A container tag that renders its contents before the first del.icio.us
+tag.
+
+=item MTDeliciousTagsFooter
+
+A container tag that renders its contents after the last del.icio.us
+tag.
+
+=back
+
+=head1 EXAMPLE
 
 <MTDeliciousTags user="del.icio.us.username" pass="del.icio.us.password">
 <MTDeliciousTagsHeader><ol></MTDeliciousTagsHeader>
@@ -104,3 +148,17 @@ Example:
   (<$MTDeliciousTagCount$>)</li>
 <MTDeliciousTagsFooter></ol></MTDeliciousTagsFooter>
 </MTDeliciousTags>
+
+=head1 LICENSE
+
+This code is released under the Artistic License. The terms of the
+Artistic License are described at
+L<http://www.perl.com/language/misc/Artistic.html>.
+
+=head1 AUTHOR & COPYRIGHT
+
+Copyright (c) 2005 Hirotaka Ogawa (hirotaka.ogawa at gmail.com)
+
+=cut
+
+=end
